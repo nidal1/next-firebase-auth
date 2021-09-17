@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import { FirebaseAuthListenner } from '../Firebase/client/AuthContext';
+import { Provider } from '../Firebase/client/AuthReducer';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import '../styles/globals.css';
+function MyApp({ Component, pageProps, data }) {
+
+  return (
+    <Provider>
+      <FirebaseAuthListenner>
+        <Component {...pageProps} />
+      </FirebaseAuthListenner>
+    </Provider>
+  )
 }
 
 export default MyApp
